@@ -1,0 +1,62 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes da Categoria</title>
+  <style>
+    /* Add some basic styling to make it look nice */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7; /* Light gray background */
+    }
+    h1 {
+      color: #6c5ce7; /* A lovely purple color */
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    strong {
+      color: #333; /* Dark gray for emphasis */
+    }
+    #delete-form {
+      margin-top: 20px;
+    }
+    #delete-form button[type="submit"] {
+      background-color: #8e44ad; /* A deeper purple for the button */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #delete-form button[type="submit"]:hover {
+      background-color: #7a3fa4; /* A slightly darker purple on hover */
+    }
+    a {
+      text-decoration: none;
+      color: #337ab7; /* A nice blue for the link */
+    }
+    a:hover {
+      color: #23527c; /* A slightly darker blue on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Detalhes da Categoria</h1>
+  <p><strong>ID:</strong> {{ categoria.Id }}</p>
+  <p><strong>Categoria:</strong> {{ categoria.Categoria }}</p>
+
+  <form id="delete-form" action="{{ url_for('sorveteria.delete_categoria', id_categoria=categoria.Id) }}" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Excluir Categoria</button>
+  </form>
+  <a href="{{ url_for('sorveteria.get_categorias') }}">Voltar para a lista de Categorias</a>
+
+</body>
+
+</html>

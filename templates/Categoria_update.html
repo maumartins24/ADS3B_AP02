@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atualizar Categoria</title>
+  <style>
+    /* Add some basic styling to make it look nice */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eee; /* Solid gray background */
+    }
+    h1 {
+      color: #6c5ce7; /* A lovely purple color */
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 300px;
+    }
+    button[type="submit"] {
+      padding: 5px 10px;
+      background-color: #6c5ce7;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #5a48a3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Atualizar Categoria - {{ categoria.Categoria }}</h1>
+  <form action="{{ url_for('sorveteria.update_categoria', id_categoria=categoria['Id']) }}" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <label for="categoria">Categoria:</label>
+    <input type="text" name="Categoria" id="categoria" value="{{ categoria['Categoria'] }}">
+    <br>
+    <button type="submit">Atualizar</button>
+  </form>
+</body>
+</html>

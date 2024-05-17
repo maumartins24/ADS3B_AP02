@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Categoria</title>
+  <style>
+    /* Add some basic styling to make it look nice */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eee; /* Solid gray background */
+    }
+    h1 {
+      color: #6c5ce7; /* A lovely purple color */
+      margin-bottom: 20px;
+    }
+    form {
+      width: 300px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      margin-top: 5px;
+    }
+    input[type="submit"] {
+      background-color: #6c5ce7;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    input[type="submit"]:hover {
+      background-color: #554fe3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Adicionar Categoria</h1>
+  <form action="{{ url_for('sorveteria.create_categoria') }}" method="POST">
+    <label for="nome">Categoria:</label><br>
+    <input type="text" id="Categoria" name="Categoria"><br>
+    <input type="submit" value="Adicionar Categoria">
+  </form>
+</body>
+</html>

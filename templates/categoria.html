@@ -1,0 +1,50 @@
+<!-- list.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Categorias</title>
+  <style>
+    /* Add some basic styling to make it look nice */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eee; /* Solid gray background */
+    }
+    h1 {
+      color: #6c5ce7; /* A lovely purple color */
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      text-decoration: none;
+      color: #337ab7; /* A nice blue for the link */
+    }
+    a:hover {
+      color: #23527c; /* A slightly darker blue on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Lista de Categorias</h1>
+  {% if categorias is not none %}
+    <ul>
+      {% for categoria in categorias %}
+        <li><a href="{{ url_for('sorveteria.get_categoria', id_categoria=categoria.Id) }}">{{ categoria.Categoria }} (ID: {{ categoria.Id }})</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhuma categoria encontrada.</p>
+  {% endif %}
+</body>
+
+</html>
